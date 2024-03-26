@@ -15,7 +15,7 @@ export default function TransactionsList({ navigation }) {
   );
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#fff' }}>
+    <View style={{ flex: 1 }}>
       <FlatList
         data={transactionsData}
         renderItem={renderItem}

@@ -7,9 +7,9 @@ const Stack = createNativeStackNavigator();
 
 export default function Transactions() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerBackTitleVisible: false }} >
       <Stack.Screen name="Transactions List" component={TransactionsList} />
-      <Stack.Screen name="Transaction Detail" component={TransactionDetail} options={{ headerTitle: '' }} />
+      <Stack.Screen name="Transaction Detail" component={TransactionDetail} />
     </Stack.Navigator>
   );
 }
