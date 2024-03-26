@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
   },
   amount: {
     fontSize: 26,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#FF6F61'
   },
   fontSize: {
     fontSize: 16

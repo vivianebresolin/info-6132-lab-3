@@ -1,21 +1,15 @@
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { transactionsData } from '../../data/mockData';
 import styles from "./styles";
+import ListItem from '../../components/ListItem';
 
 export default function TransactionsList({ navigation }) {
   const renderItem = ({ item }) => (
-    <TouchableOpacity
-      onPress={() => navigation.navigate('Transaction Detail', { transaction: item })}
-      style={{ padding: 10, borderBottomWidth: 1, borderBottomColor: '#ccc' }}
-    >
-      <Text style={{ fontSize: 16 }}>{item.name}</Text>
-      <Text style={{ fontSize: 14 }}>Amount: ${item.amount}</Text>
-      <Text style={{ fontSize: 14 }}>Date: {item.date}</Text>
-    </TouchableOpacity>
+    <ListItem listItem={item} navigation={navigation} />
   );
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <FlatList
         data={transactionsData}
         renderItem={renderItem}
