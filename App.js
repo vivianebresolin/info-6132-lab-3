@@ -1,20 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { FontAwesome5 } from '@expo/vector-icons';
+import Transactions from './src/screens/Transactions';
+import Summary from './src/screens/Summary';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen
+          name="Transactions"
+          component={Transactions}
+          options={{
+            title: 'Transactions',
+            tabBarIcon: ({ color }) => {
+              return (
+                <FontAwesome5 name="exchange-alt" size={24} color={color} />
+              );
+            }
+          }}
+        />
+        <Tab.Screen
+          name="Summary"
+          component={Summary}
+          options={{
+            title: 'Summary',
+            tabBarIcon: ({ color }) => {
+              return (
+                <FontAwesome5 name="file-alt" size={24} color={color} />
+              );
+            }
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
