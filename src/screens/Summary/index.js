@@ -1,13 +1,8 @@
 import { Text, View } from "react-native";
+import { transactionsData } from "../../data/mockData";
 import styles from "./styles";
 
 export default function Summary() {
-  const transactionsData = [
-    { id: 1, name: 'Transaction 1', amount: 100 },
-    { id: 2, name: 'Transaction 2', amount: 150 },
-    { id: 3, name: 'Transaction 3', amount: 200 },
-  ];
-
   const totalTransactions = transactionsData.length;
   const totalAmount = transactionsData.reduce((acc, curr) => acc + curr.amount, 0);
   const highestTransaction = transactionsData.reduce((prev, curr) => (prev.amount > curr.amount ? prev : curr));
