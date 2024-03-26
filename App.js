@@ -14,7 +14,7 @@ export default function App() {
           name="Transactions"
           component={Transactions}
           options={{
-            title: 'Transactions',
+            headerShown: false,
             tabBarIcon: ({ color }) => {
               return (
                 <FontAwesome5 name="exchange-alt" size={24} color={color} />
@@ -26,7 +26,6 @@ export default function App() {
           name="Summary"
           component={Summary}
           options={{
-            title: 'Summary',
             tabBarIcon: ({ color }) => {
               return (
                 <FontAwesome5 name="file-alt" size={24} color={color} />
