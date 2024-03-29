@@ -1,13 +1,15 @@
 import { Text, View } from "react-native";
-import { transactionsData } from "../../data/mockData";
+import { useTransactions } from "../../context/transactionsContext";
 import { formatAmount } from '../../utils/utils';
 import styles from "./styles";
 
 export default function Summary() {
-  const totalTransactions = transactionsData.length;
-  const totalAmount = transactionsData.reduce((acc, curr) => acc + curr.amount, 0);
-  const highestTransaction = transactionsData.reduce((prev, curr) => (prev.amount > curr.amount ? prev : curr));
-  const lowestTransaction = transactionsData.reduce((prev, curr) => (prev.amount < curr.amount ? prev : curr));
+  const { transactions } = useTransactions();
+
+  const totalTransactions = transactions.length;
+  const totalAmount = transactions.reduce((acc, curr) => acc + curr.amount, 0);
+  const highestTransaction = transactions.reduce((prev, curr) => (prev.amount > curr.amount ? prev : curr));
+  const lowestTransaction = transactions.reduce((prev, curr) => (prev.amount < curr.amount ? prev : curr));
 
   return (
     <View style={styles.container}>
