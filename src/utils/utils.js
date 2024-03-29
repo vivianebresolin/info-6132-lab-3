@@ -5,7 +5,8 @@ export const formatDate = (transactionDate) => {
 }
 
 export const formatAmount = (transactionAmount) => {
-  return transactionAmount.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' });
+  const value = Number(transactionAmount);
+  return value.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' });
 }
 
 export function formatDateToDB(inputDateString) {
@@ -31,4 +32,29 @@ export function parseStringToFloat(userInput) {
   }
 
   return parsedValue;
+}
+
+export const monthNames = [
+  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+];
+
+export function formatDateString(inputDate) {
+  let date = inputDate;
+
+  if (!inputDate) {
+    return '';
+  }
+
+  if (!(inputDate instanceof Date)) {
+    date = new Date(inputDate + 'T12:00:00Z');
+  }
+
+  const month = monthNames[date.getMonth()];
+  const day = String(date.getDate()).padStart(2, '0');
+  const year = date.getFullYear();
+
+  const formattedDate = `${month} ${day}, ${year}`;
+
+  return formattedDate;
 }

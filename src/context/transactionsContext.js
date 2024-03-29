@@ -38,7 +38,8 @@ export const TransactionsProvider = ({ children }) => {
         {
           transactions,
           setTransactions,
-          isDataLoaded
+          isDataLoaded,
+          addTransactionToTheList
         }
       }
     >

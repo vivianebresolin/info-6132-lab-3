@@ -17,6 +17,7 @@ export async function addTransaction(name, amount, date, location) {
       id: docRef.id
     };
   } catch (e) {
+    console.log('Error: ', e);
     return null;
   }
 }

@@ -7,7 +7,7 @@ export default function Summary() {
   const { transactions } = useTransactions();
 
   const totalTransactions = transactions.length;
-  const totalAmount = transactions.reduce((acc, curr) => acc + curr.amount, 0);
+  const totalAmount = transactions.reduce((acc, curr) => acc + Number(curr.amount), 0);
   const highestTransaction = transactions.reduce((prev, curr) => (prev.amount > curr.amount ? prev : curr));
   const lowestTransaction = transactions.reduce((prev, curr) => (prev.amount < curr.amount ? prev : curr));
 
